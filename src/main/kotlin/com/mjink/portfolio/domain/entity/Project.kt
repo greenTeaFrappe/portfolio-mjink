@@ -40,7 +40,7 @@ class Project(
     var details: MutableList<ProjectDetail> = mutableListOf()
 
     // mappedBy -> 연관관계의 주인 지정 projectSkill이 주인
-    @OneToMany(mappedBy = "project")
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
     var skills: MutableList<ProjectSkill> = mutableListOf()
 
     fun getEndYearMonth(): String {

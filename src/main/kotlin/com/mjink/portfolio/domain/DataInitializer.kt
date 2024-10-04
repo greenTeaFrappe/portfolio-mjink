@@ -135,7 +135,7 @@ class DataInitializer( // 아래에 적혀있는 것들도 필요하기 때문�
         project2.addDetails(
             mutableListOf(
                 ProjectDetail(content = "PIL(Pillow) 활용하여 이미지 분석 기능 개발", url = null, isActive = true),
-                ProjectDetail(content = "알림 발송을 비동기 처리하여 이미지 분석 - 알림 발송 기능간 의존도 감 소", url = null, isActive = true),
+                ProjectDetail(content = "알림 발송을 비동기 처리하여 이미지 분석 - 알림 발송 기능간 의존도 감소", url = null, isActive = true),
                 ProjectDetail(content = "Github Repository", url = "https://github.com/infomuscle", isActive = true)
             )
         )
