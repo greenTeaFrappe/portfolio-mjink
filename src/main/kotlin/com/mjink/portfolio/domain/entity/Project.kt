@@ -15,6 +15,7 @@ class Project(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_id")
+
     var id: Long? = null
 
     var name: String = name
@@ -34,13 +35,17 @@ class Project(
     @OneToMany(
         targetEntity = ProjectDetail::class,
         fetch = FetchType.LAZY,
-        cascade = [CascadeType.ALL]
+        cascade = [CascadeType.PERSIST]
     ) // 엔티티에서 영속성 컨테스트에 변화가 있었을 때 그 자식 엔티티도 함께 변화 적용
     @JoinColumn(name = "project_id")
     var details: MutableList<ProjectDetail> = mutableListOf()
 
     // mappedBy -> 연관관계의 주인 지정 projectSkill이 주인
-    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY, cascade = [CascadeType.PERSIST])
+    @OneToMany(
+        mappedBy = "project",
+        fetch = FetchType.LAZY,
+        cascade = [CascadeType.PERSIST]
+    )
     var skills: MutableList<ProjectSkill> = mutableListOf()
 
     fun getEndYearMonth(): String {
